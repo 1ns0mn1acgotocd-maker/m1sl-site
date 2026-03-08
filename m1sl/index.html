@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M1SL | Collective</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body { background: black; font-family: 'Inter', sans-serif; color: white; overflow-x: hidden; cursor: none; }
+        canvas { position: fixed; top: 0; left: 0; z-index: -1; }
+        #cursor-dot { width: 8px; height: 8px; background: #00FF00; border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; box-shadow: 0 0 10px #00FF00, 0 0 20px #00FF00; transform: translate(-50%, -50%); transition: transform 0.1s ease-out; }
+        .fade { opacity: 0; transform: translateY(40px); transition: 1s; }
+        .fade.show { opacity: 1; transform: translateY(0); }
+        .release-card img { border-radius: 12px; transition: all 0.5s ease; border: 1px solid transparent; }
+        .release-card:hover img { border-color: #00FF00; box-shadow: 0 0 20px rgba(0, 255, 0, 0.2); transform: translateY(-5px); }
+        a:hover ~ #cursor-dot { transform: translate(-50%, -50%) scale(2.5); background: rgba(0, 255, 0, 0.5); }
+    </style>
+</head>
+<body>
+    <div id="cursor-dot"></div>
+    <canvas id="stars"></canvas>
+
+    <nav class="w-full p-6 flex justify-between items-center relative z-10">
+        <div class="text-[#00FF00] text-xl font-bold uppercase italic tracking-tighter">M1SL</div>
+        <div class="hidden md:flex space-x-12 text-xs uppercase tracking-[0.4em] text-zinc-500">
+            <a href="#artists" class="hover:text-[#00FF00] transition">Artists</a>
+            <a href="#releases" class="hover:text-[#00FF00] transition">Releases</a>
+            <a href="#connect" class="hover:text-[#00FF00] transition">Connect</a>
+        </div>
+    </nav>
+
+    <section class="flex justify-center items-center py-40">
+        <img src="https://i.postimg.cc/43xHmdtM/107a0619-a41f-4644-835a-fd4ededdcc02-removebg-preview.png" class="w-64 md:w-96 hover:scale-105 transition duration-500">
+    </section>
+
+    <section id="artists" class="py-32 px-6 fade">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-[#00FF00] text-4xl mb-16 uppercase italic font-bold">M1SL Artists</h2>
+            <div class="grid md:grid-cols-3 gap-12">
+                <a href="artists/1ns0mn1ac.html">
+                    <div class="group">
+                        <img src="https://i.postimg.cc/HsmKccsd/download-(2).jpg" class="rounded-xl grayscale group-hover:grayscale-0 transition duration-700 border border-zinc-900 group-hover:border-[#00FF00]">
+                        <h3 class="text-white mt-4 text-xl tracking-widest uppercase group-hover:text-[#00FF00] transition">1ns0mn1ac</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="releases" class="py-32 px-6 fade">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-[#00FF00] text-4xl mb-16 uppercase italic font-bold">Latest Releases</h2>
+            <div class="grid md:grid-cols-4 gap-10">
+                <a href="https://open.spotify.com/album/7o1aJWSfgZFDvMidFonA97?si=9LERodXVScyn1utFXm_C1A" target="_blank" class="release-card group block">
+                    <div class="overflow-hidden rounded-xl">
+                        <img src="https://i.postimg.cc/44WxYCpZ/BC8CF32A-FEDB-411B-BAC2-07BEFE57C675.jpg" class="mb-4 w-full group-hover:scale-110 transition duration-700">
+                    </div>
+                    <h3 class="text-white tracking-widest uppercase group-hover:text-[#00FF00] transition">W4STED</h3>
+                    <p class="text-zinc-500 text-sm italic uppercase tracking-tighter">EP • 2026</p>
+                    <p class="text-[#00FF00] text-[10px] mt-2 font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition">Listen Now →</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="connect" class="py-32 px-6 fade border-t border-zinc-900 text-center bg-zinc-950/30">
+        <div class="max-w-xl mx-auto">
+            <h2 class="text-[#00FF00] text-3xl uppercase italic mb-4">Join the list</h2>
+            <p class="text-zinc-500 text-xs tracking-[0.4em] mb-12 uppercase">Direct access to the collective</p>
+            
+            <a href="https://forms.gle/jJa9iK8D8UpDMpGCA" target="_blank" class="block w-full bg-[#00FF00] text-black px-12 py-5 font-bold uppercase text-xs tracking-[0.3em] hover:bg-white transition duration-500 mb-6">Register Email</a>
+
+            <div class="grid grid-cols-3 gap-4">
+                <a href="https://www.instagram.com/music1st_sleeplatr/" target="_blank" class="border border-zinc-800 py-4 text-[10px] uppercase tracking-widest hover:border-[#00FF00] hover:text-[#00FF00] transition">Instagram</a>
+                <a href="https://open.spotify.com/user/31jxg7dls2khe7mxiageemk5rpnm?si=056c371d91df4cb9" target="_blank" class="border border-zinc-800 py-4 text-[10px] uppercase tracking-widest hover:border-[#00FF00] hover:text-[#00FF00] transition">Spotify</a>
+                <a href="https://x.com/M1SL_RECORDS" target="_blank" class="border border-zinc-800 py-4 text-[10px] uppercase tracking-widest hover:border-[#00FF00] hover:text-[#00FF00] transition">Twitter</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-20 text-center border-t border-zinc-900">
+        <p class="text-zinc-600 text-[10px] tracking-[0.5em] uppercase">MUSIC 1st SLEEP LATR • © 2026</p>
+    </footer>
+
+    <script>
+        const canvas = document.getElementById("stars");
+        const ctx = canvas.getContext("2d");
+        const cursorDot = document.getElementById("cursor-dot");
+        canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+        let stars = []; let mouse = { x: -1000, y: -1000 };
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX; mouse.y = e.clientY;
+            cursorDot.style.left = e.clientX + 'px'; cursorDot.style.top = e.clientY + 'px';
+        });
+        for (let i = 0; i < 250; i++) {
+            stars.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, size: Math.random() * 2, speed: Math.random() * 0.5 + 0.2, ox: Math.random() * canvas.width, oy: Math.random() * canvas.height });
+        }
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            stars.forEach(star => {
+                star.oy += star.speed; if (star.oy > canvas.height) star.oy = 0;
+                let dx = mouse.x - star.ox, dy = mouse.y - star.oy, dist = Math.sqrt(dx * dx + dy * dy);
+                let px = 0, py = 0;
+                if (dist < 100) { let f = (100 - dist) / 100; px = (dx / dist) * f * -50; py = (dy / dist) * f * -50; }
+                ctx.fillStyle = "#00FF00"; ctx.globalAlpha = 0.4;
+                ctx.fillRect(star.ox + px, star.oy + py, star.size, star.size);
+            });
+            requestAnimationFrame(animate);
+        }
+        animate();
+        const obs = new IntersectionObserver(ents => ents.forEach(e => { if (e.isIntersecting) e.target.classList.add("show"); }));
+        document.querySelectorAll(".fade").forEach(el => obs.observe(el));
+    </script>
+</body>
+</html>
