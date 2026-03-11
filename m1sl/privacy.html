@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>M1SL | Privacy Policy</title>
+
+<link rel="icon" type="image/png" href="favicon.png">
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+background:#050505;
+font-family:'Inter',sans-serif;
+color:white;
+cursor:none;
+overflow-x:hidden;
+}
+
+/* loader */
+
+#loader{
+position:fixed;
+inset:0;
+background:#020202;
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:99999;
+transition:opacity .6s;
+}
+
+.loader-image{
+width:140px;
+
+filter:
+drop-shadow(0 0 20px rgba(255,255,255,.5))
+drop-shadow(0 0 40px rgba(56,189,248,.4));
+
+animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0)}
+50%{transform:translateY(-12px)}
+100%{transform:translateY(0)}
+}
+
+/* chrome title */
+
+.chrome-title{
+background:linear-gradient(
+90deg,
+#ffffff,
+#d4d4d4,
+#9ca3af,
+#ffffff
+);
+background-size:300%;
+-webkit-background-clip:text;
+color:transparent;
+animation:chromeShimmer 8s linear infinite;
+
+text-shadow:
+0 0 20px rgba(56,189,248,.3);
+}
+
+@keyframes chromeShimmer{
+0%{background-position:0%}
+100%{background-position:300%}
+}
+
+/* glass panel */
+
+.glass{
+
+background:rgba(20,20,20,.6);
+
+border:1px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(20px);
+
+box-shadow:
+0 0 30px rgba(0,0,0,.5);
+
+}
+
+/* cursor */
+
+#cursor-dot{
+width:8px;
+height:8px;
+background:#7dd3fc;
+border-radius:50%;
+position:fixed;
+pointer-events:none;
+z-index:9999;
+
+box-shadow:
+0 0 10px #7dd3fc,
+0 0 25px #38bdf8;
+
+transform:translate(-50%,-50%);
+}
+
+/* stars */
+
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
+}
+
+/* links */
+
+a{
+color:#7dd3fc;
+transition:.3s;
+}
+
+a:hover{
+text-shadow:0 0 10px #38bdf8;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="loader">
+<img src="https://i.postimg.cc/nLV2swCX/favicon-(2).png" class="loader-image">
+</div>
+
+<div id="cursor-dot"></div>
+
+<canvas id="stars"></canvas>
+
+<nav class="w-full p-6 flex justify-between items-center relative z-10">
+
+<a href="index.html" class="flex items-center space-x-3 text-blue-300 font-bold italic">
+<img src="favicon.png" class="w-6 h-6">
+<span>← BACK TO M1SL</span>
+</a>
+
+</nav>
+
+<section class="py-28 px-6">
+
+<div class="max-w-4xl mx-auto">
+
+<h1 class="chrome-title text-5xl md:text-6xl font-bold mb-12 italic uppercase">
+Privacy Policy
+</h1>
+
+<div class="glass rounded-2xl p-10 space-y-10 leading-relaxed text-zinc-300">
+
+<div>
+<h2 class="text-white text-xl font-semibold mb-2">Information We Collect</h2>
+<p>
+We may collect information such as email addresses when users voluntarily submit forms on this website.
+</p>
+</div>
+
+<div>
+<h2 class="text-white text-xl font-semibold mb-2">How Information Is Used</h2>
+<p>
+Information collected may be used to communicate updates related to M1SL, artist releases, or other relevant announcements.
+</p>
+</div>
+
+<div>
+<h2 class="text-white text-xl font-semibold mb-2">Third-Party Services</h2>
+<p>
+This website may link to external services including Spotify, Instagram, and Google Forms. These services operate under their own privacy policies.
+</p>
+</div>
+
+<div>
+<h2 class="text-white text-xl font-semibold mb-2">Data Protection</h2>
+<p>
+We take reasonable measures to protect submitted information but cannot guarantee absolute security.
+</p>
+</div>
+
+<div>
+<h2 class="text-white text-xl font-semibold mb-2">Policy Updates</h2>
+<p>
+This privacy policy may be updated periodically to reflect changes in services or legal requirements.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer class="py-20 text-center text-zinc-600 text-xs uppercase tracking-widest border-t border-zinc-900">
+
+M1SL™ (MUSIC 1st SLEEP LATR) Starter independent Record Label
+
+</footer>
+
+<script>
+
+/* loader */
+
+window.onload=()=>{
+setTimeout(()=>{
+document.getElementById("loader").style.opacity="0"
+setTimeout(()=>{
+document.getElementById("loader").remove()
+},600)
+},900)
+}
+
+/* cursor */
+
+const cursor=document.getElementById("cursor-dot")
+
+window.addEventListener("mousemove",e=>{
+cursor.style.left=e.clientX+"px"
+cursor.style.top=e.clientY+"px"
+})
+
+/* stars */
+
+const canvas=document.getElementById("stars")
+const ctx=canvas.getContext("2d")
+
+function resize(){
+canvas.width=window.innerWidth
+canvas.height=window.innerHeight
+}
+
+window.addEventListener("resize",resize)
+resize()
+
+let stars=[]
+
+for(let i=0;i<200;i++){
+
+stars.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+size:Math.random()*2,
+speed:Math.random()*0.4+.1
+})
+
+}
+
+function animate(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height)
+
+stars.forEach(s=>{
+
+s.y+=s.speed
+
+if(s.y>canvas.height)s.y=0
+
+ctx.fillStyle="#9ca3af"
+ctx.globalAlpha=.4
+
+ctx.fillRect(s.x,s.y,s.size,s.size)
+
+})
+
+requestAnimationFrame(animate)
+
+}
+
+animate()
+
+</script>
+
+</body>
+</html>
+```
